@@ -45,6 +45,6 @@ int main(int argc,char *argv[]) {
     }
     file<<"std::cout<<'\\n';}";
     file.close();
-    system(("g++ -O2 "+programname+".cpp -o "+programname).c_str());
+    system(("g++ -O2 "+'"'+programname+'"'+".cpp -o "+programname).c_str());
     remove((programname + ".cpp").c_str());
 }
