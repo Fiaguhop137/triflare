@@ -24,7 +24,7 @@ This command automatically pulls the latest version from my repository, installs
 | `0`  | Move the pointer one cell left  |
 | `1`  | Move the pointer one cell right |
 | `2`  | Toggle the current bit          |
-| `22` | Output the current bit          |
+| `22` | Output the current byte         |
 | `10` | Begin a loop                    |
 | `01` | End a loop                      |
 
@@ -55,7 +55,7 @@ tape[pointer] = !tape[pointer];
 
 ### Output
 
-`22` outputs the value of the current tape cell.
+`22` outputs the value of the current 8 tape cells as a ascii byte.
 
 Because `22` is a two-character instruction, it takes priority over two consecutive `2` instructions.
 
@@ -69,7 +69,7 @@ is interpreted as:
 22 2
 ```
 
-so it outputs the current bit and then toggles it.
+so it outputs the current byte and then toggles the current bit.
 
 ### Loops
 
