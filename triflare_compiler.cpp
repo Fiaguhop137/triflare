@@ -67,7 +67,7 @@ int main(int argc,char* argv[]){
     }
     file<<"std::cout<<'\\n';}";
     file.close();
-    int result=system(("g++ -O3 -flto=auto \"__tricache__\" -o \""+output+"\"").c_str());
+    int result=system(("g++ -O3 -flto=auto -x c++ \"__tricache__\" -o \""+output+"\"").c_str());
     remove("__tricache__");
     if(result!=0){std::cerr<<"Error: g++ returned "<<result<<'\n';}
     return result;
