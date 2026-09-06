@@ -12,7 +12,7 @@ std::string getchonk(char a,char b) {
         return("}");
     }
     if(a=='2'&&b=='2'){
-        return("std::cout<<tape[pointer];");
+        return("twentytwo();");
     }
     size=1;
     if(a=='0'){
@@ -37,7 +37,7 @@ int main(int argc,char *argv[]) {
     std::ifstream programfile(programname + ".tri");
     std::string program((std::istreambuf_iterator<char>(programfile)),std::istreambuf_iterator<char>());
     std::ofstream file(programname+".cpp");
-    file<<"#include <iostream>\n#include <vector>\nstd::vector<bool> tape(8,false);int pointer=0;void one(){pointer++;if(tape.size()<=pointer)tape.resize(pointer+8,false);}int main(){";
+    file<<"#include <iostream>\n#include <vector>\n#include <stdint.h>\nstd::vector<bool> tape(8,false);uint pointer=0;void twentytwo(){uint8_t value=0;for (int i=0;i<8;++i){value=(value<<1)|tape[pointer+i];}std::cout<<static_cast<char>(value);}void one(){pointer++;if(tape.size()<=pointer)tape.resize(pointer+8,false);}int main(){";
     int i=0;
     while(i<program.size()){
         file<<getchonk(program[i],program[i+1]);
@@ -45,6 +45,8 @@ int main(int argc,char *argv[]) {
     }
     file<<"std::cout<<'\\n';}";
     file.close();
-    system(("g++ -O2 "+'"'+programname+'"'+".cpp -o "+'"'+programname+'"').c_str());
+    int result=system(("g++ -O2 \""+programname+".cpp\" -o \""+programname+"\"").c_str());
     remove((programname + ".cpp").c_str());
+    if(result!=0){std::cerr<<"Error: g++ returned "<<result<<std::endl;}
+    return result;
 }
