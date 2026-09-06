@@ -57,7 +57,7 @@ int main(int argc,char* argv[]){
         std::cerr<<"Error: could not create compiler cache\n";
         return 1;
     }
-    file<<"#include <iostream>\n#include <vector>\n#include <stdint.h>\nstd::vector<bool> tape(8,false);uint pointer=0;void twentytwo(){uint8_t value=0;for(int i=0;i<8;++i){value=(value<<1)|tape[pointer+i];}std::cout<<static_cast<char>(value);}void one(){pointer++;if(tape.size()<=pointer)tape.resize(pointer+8,false);}int main(){";
+    file<<"#include <iostream>\n#include <vector>\n#include <cstdint>\nstd::vector<bool> tape(8,false);std::uint32_t pointer=0;void twentytwo(){uint8_t value=0;for(int i=0;i<8;++i){value=(value<<1)|tape[pointer+i];}std::cout<<static_cast<char>(value);}void one(){pointer++;if(tape.size()<=pointer)tape.resize(pointer+8,false);}int main(){";
     int i=0;
     while(i<static_cast<int>(program.size())){
         char a=program[i];

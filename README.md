@@ -10,7 +10,7 @@ The easiest installation will be
 
 | OS  | Command |
 | --- | ----- |
-| Linux | `git clone https://github.com/Fiaguhop137/triflare && sudo install triflare/tric /usr/local/bin/ && rm -r triflare` |
+| Linux | `git clone https://github.com/Fiaguhop137/triflare && sudo install triflare/tric /usr/local/bin/ && rm -rf triflare` |
 | Windows(powershell) | `git clone https://github.com/Fiaguhop137/triflare; Copy-Item triflare/tric.exe -Destination "C:\Windows\System32\"; Remove-Item -Recurse -Force triflare` |
 | Windows(command prompt) | `git clone https://github.com/Fiaguhop137/triflare && copy triflare\tric.exe C:\Windows\System32\ && rmdir /s /q triflare` |
 | MacOS | Not compatible |
